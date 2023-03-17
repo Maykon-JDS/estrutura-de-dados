@@ -2,39 +2,57 @@
 
 using namespace std;
 
-int *criarFila(int tamanhoDaFila = 5)
+class Fila
 {
+public:
+    void criarFila(int EspacoDaFila = 5)
+    {
+        this->EspacoDaFila = EspacoDaFila;
+        this->fila = (int *)calloc(EspacoDaFila, sizeof(int));
+    }
 
-    int *fila = (int *)calloc(tamanhoDaFila, sizeof(int));
+    int * retornarFila(){
+        return this->fila;
+    }
 
-    return fila;
-}
+    int retornarEspacoFila(){
+        return this->EspacoDaFila;
+    }
 
-int verificarVagaNaFila(int *fila)
-{
-}
+    int verificarVagaNaFila(int *fila)
+    {
+    }
 
-void aumentarTamanhoDaFila()
-{
-}
+    void aumentarTamanhoDaFila()
+    {
+    }
 
-void adicionarPessoa()
-{
-}
+    void adicionarPessoa()
+    {
+        this->fila[this->tamanhoDaFila] += 1;
+        this->tamanhoDaFila += 1;
+    }
 
-void removerPessoa()
-{
-}
+    void removerPessoa()
+    {
+    }
+
+private:
+    int *fila;
+    int EspacoDaFila;
+    int tamanhoDaFila = 0;
+};
 
 int main()
 {
-
-    int tamanhoDaFila = 2;
-    int *fila = criarFila(2);
-
-    for (int i = 0; i < 2; i++)
+    Fila * fila = new Fila();
+    fila->criarFila(5);
+    fila->adicionarPessoa();
+    fila->adicionarPessoa();
+    
+    for (int i = 0; i < fila->retornarEspacoFila(); i++)
     {
-        cout << fila[i] << "\n";
+        cout << fila->retornarFila()[i] << "\n";
     }
 
     system("PAUSE >nul");
