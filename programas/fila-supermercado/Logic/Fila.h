@@ -42,19 +42,3 @@ private:
     int EspacoDaFila;
     int tamanhoDaFila = 0;
 };
-
-int main()
-{
-    Fila * fila = new Fila();
-    fila->criarFila(5);
-    fila->adicionarPessoa();
-    fila->adicionarPessoa();
-    
-    for (int i = 0; i < fila->retornarEspacoFila(); i++)
-    {
-        cout << fila->retornarFila()[i] << "\n";
-    }
-
-    system("PAUSE >nul");
-    return 0;
-}
