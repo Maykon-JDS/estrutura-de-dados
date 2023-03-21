@@ -4,10 +4,16 @@ using namespace std;
 
 class Fila
 {
+
+private:
+    int *fila = 0;
+    int VagaDaFila = 0;
+    int tamanhoDaFila = 0;
+
 public:
     void criarFila(int EspacoDaFila = 5)
     {
-        this->EspacoDaFila = EspacoDaFila;
+        this->VagaDaFila = EspacoDaFila;
         this->fila = (int *)calloc(EspacoDaFila, sizeof(int));
     }
 
@@ -15,8 +21,8 @@ public:
         return this->fila;
     }
 
-    int retornarEspacoFila(){
-        return this->EspacoDaFila;
+    int retornarVagaFila(){
+        return this->VagaDaFila;
     }
 
     int verificarVagaNaFila(int *fila)
@@ -30,15 +36,16 @@ public:
     void adicionarPessoa()
     {
         this->fila[this->tamanhoDaFila] += 1;
-        this->tamanhoDaFila += 1;
+        this->VagaDaFila--;
+        this->tamanhoDaFila++;
     }
 
     void removerPessoa()
     {
+        this->tamanhoDaFila--;
+        this->fila[this->tamanhoDaFila] = 0;
+        this->VagaDaFila++;  
     }
 
-private:
-    int *fila;
-    int EspacoDaFila;
-    int tamanhoDaFila = 0;
+
 };
