@@ -1,0 +1,3 @@
+# Gerenciador de Alunos com Lista Duplamente Encadeada
+
+Neste projeto, apresentamos um programa em C++ para gerenciar uma lista duplamente encadeada de alunos. O objetivo é cadastrar 5 alunos, armazenando seus nomes e notas finais na lista. Em seguida, o programa deve exibir apenas os nomes dos alunos aprovados, ou seja, com nota final igual ou superior a 7. Caso nenhum aluno seja aprovado, será exibida uma mensagem correspondente.
