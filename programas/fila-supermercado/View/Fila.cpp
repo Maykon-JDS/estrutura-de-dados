@@ -11,13 +11,13 @@ int main()
     controle.adicionarPessoa();
     controle.adicionarPessoa();
     controle.adicionarPessoa();
-    controle.removerPessoa();
-    controle.removerPessoa();
-    controle.removerPessoa();
-
-    cout << controle.retornarVagaFila();
-
-
+    controle.adicionarPessoa();
+    controle.adicionarPessoa();
+    controle.adicionarPessoa();
+    controle.adicionarPessoa();
+    controle.adicionarPessoa();
+    controle.adicionarPessoa();
+    cout << controle.retornarFila();
     system("PAUSE >nul");
     return 0;
 }

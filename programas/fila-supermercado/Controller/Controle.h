@@ -16,9 +16,9 @@ public:
     void adicionarPessoa(){
         currentFila->adicionarPessoa();
     }
-    
-    int retornarVagaFila(){
-       return currentFila->retornarVagaFila();
+
+    string retornarFila(){
+       return currentFila->retornarFila();
     }
 
     void removerPessoa(){
