@@ -1,0 +1,1 @@
+3.	Faça um programa que cadastre 5 alunos. Para cada aluno devem ser cadastrados nome e nota final. Os dados devem ser armazenados em uma lista duplamente encadeada e não ordenada. Em seguida, o programa deve mostrar apenas o nome dos alunos aprova¬dos, ou seja, alunos com nota final de no mínimo 7. Se nenhum aluno estiver aprovado, mostrar mensagem.
