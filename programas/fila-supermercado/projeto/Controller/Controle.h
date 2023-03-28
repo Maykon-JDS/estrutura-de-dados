@@ -5,24 +5,22 @@ using namespace std;
 class Controle
 {
 private:
-    Fila * currentFila = 0;
+    Fila * currentFila = new Fila();
 public:
     void criarFila(){
-       Fila * fila = new Fila();
-       fila->criarFila();
-       currentFila = fila;
+       currentFila->criarFila();
     }
 
     void adicionarPessoa(){
         currentFila->adicionarPessoa();
     }
 
-    string retornarFila(){
-       return currentFila->retornarFila();
-    }
-
     void removerPessoa(){
         currentFila->removerPessoa();
+    }
+
+    string retornarFila(){
+       return currentFila->retornarFila();
     }
 };
 

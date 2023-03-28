@@ -7,9 +7,9 @@ class Fila
 {
 
 private:
-    int *fila = 0;
-    int posicaoDaProximaVaga = 0;
-    int capacidade = 0;
+    int *fila{0};
+    int posicaoDaProximaVaga{0};
+    int capacidade{0};
 
 public:
     void criarFila(int EspacoDaFila = 5)
@@ -23,12 +23,7 @@ public:
         for(int i = 0; i < capacidade; i++){
             fila += to_string(i+1) + " - " + verificarVagoOuOcupado(this->fila[i]) + "\n";
         }
-
         return fila;
-    }
-
-    int verificarVagaNaFila(int *fila)
-    {
     }
 
     void adicionarPessoa()
