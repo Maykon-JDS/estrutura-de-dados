@@ -1,27 +1,27 @@
 #include "../Controller/Controle.h"
+#include <ctime>  
 
 class Interface
 {
 private:
     Controle *controle = new Controle();
-    int rodando{2};
-    int opcao{0};
+    int estadoDoSistema{1};
+    int opcao{};
 
 public:
     void rodarPrograma()
     {
-        
-        while (this->rodando != 0)
+        system("cls");
+        while (this->estadoDoSistema != 0)
         {
             this->mostrarOpcoes();
             this->escolherOpcao();
-            this->rodando--;
+            estadoDoSistema = this->controlarOpcoes(this->opcao);
         }
+        sair();
     }
 
 private:
-
-
     void mostrarOpcoes()
     {
         cout << this->opcoes();
@@ -31,6 +31,7 @@ private:
     {
         string opcoes =
             "Escolha uma Opção:\n"
+            "0 - Sair\n"
             "1 - Adicionar pessoa\n"
             "2 - Retirar pessoa\n"
             "3 - Ver fila\n";
@@ -40,9 +41,19 @@ private:
 
     void escolherOpcao()
     {
-        cout << "Numero da Opção: ";
+        cout << "\nNúmero da Opção: ";
         cin >> this->opcao;
-        cout << "\n";
+        system("cls");
+
+    }
+
+    int controlarOpcoes(int opcao){
+        this->controle->controlarOpcoes(opcao);
+    }
+
+    void sair(){
+        cout << "Saindo...";
+        system("timeout /t 1 /nobreak > null");
     }
 };
 

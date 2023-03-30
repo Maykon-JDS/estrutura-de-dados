@@ -9,6 +9,5 @@ int main()
 
     Interface * programa = new Interface();
     programa->rodarPrograma();
-    system("PAUSE >nul");
     return 0;
 }
