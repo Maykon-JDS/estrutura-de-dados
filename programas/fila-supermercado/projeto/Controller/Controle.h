@@ -8,10 +8,13 @@ private:
     Fila *currentFila = new Fila();
 
 public:
+    void criarFila()
+    {
+        currentFila->criarFila();
+    }
+
     int controlarOpcoes(int opcao)
     {
-        this->criarFila();
-
         int estadoDoSistema = 1;
 
         switch (opcao)
@@ -22,6 +25,7 @@ public:
             break;
 
         case 1:
+            this->adicionarPessoa();
             return estadoDoSistema;
             break;
 
@@ -30,6 +34,7 @@ public:
             break;
 
         case 3:
+            cout << this->retornarFila() << "\n";
             return estadoDoSistema;
             break;
 
@@ -41,10 +46,7 @@ public:
     }
 
 private:
-    void criarFila()
-    {
-        currentFila->criarFila();
-    }
+    
 
     void adicionarPessoa()
     {

@@ -6,12 +6,17 @@ class Interface
 private:
     Controle *controle = new Controle();
     int estadoDoSistema{1};
-    int opcao{};
+    int opcao{0};
 
 public:
     void rodarPrograma()
     {
+
+
+        criarFila();
+
         system("cls");
+        
         while (this->estadoDoSistema != 0)
         {
             this->mostrarOpcoes();
@@ -29,13 +34,7 @@ private:
 
     string opcoes()
     {
-        string opcoes =
-            "Escolha uma Opção:\n"
-            "0 - Sair\n"
-            "1 - Adicionar pessoa\n"
-            "2 - Retirar pessoa\n"
-            "3 - Ver fila\n";
-
+        string opcoes = "Escolha uma Opção:\n\n0 - Sair\n1 - Adicionar pessoa\n2 - Retirar pessoa\n3 - Ver fila\n";
         return opcoes;
     }
 
@@ -48,12 +47,17 @@ private:
     }
 
     int controlarOpcoes(int opcao){
-        this->controle->controlarOpcoes(opcao);
+        return this->controle->controlarOpcoes(opcao);
+    }
+
+    void criarFila()
+    {
+        controle->criarFila();
     }
 
     void sair(){
         cout << "Saindo...";
-        system("timeout /t 1 /nobreak > null");
+        system("timeout /t 1 /nobreak > nul");
     }
 };
 
