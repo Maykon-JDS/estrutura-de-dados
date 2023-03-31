@@ -7,21 +7,21 @@ class Fila
 {
 
 private:
-    int *fila;
+    int *fila = 0;
     int posicaoDaProximaVaga = 0;
-    int capacidade{0};
+    int capacidade = 0;
 
 public:
     void criarFila(int EspacoDaFila = 5)
     {
-        this->capacidade = EspacoDaFila;
-        this->fila = (int *)calloc(EspacoDaFila, sizeof(int));
+        capacidade = EspacoDaFila;
+        fila = (int *)calloc(EspacoDaFila, sizeof(int));
     }
 
     void adicionarPessoa()
     {
         verificarFilaCheia();
-        fila[this->posicaoDaProximaVaga] += 1;
+        fila[posicaoDaProximaVaga] += 1;
         posicaoDaProximaVaga++;
     }
 
@@ -35,8 +35,8 @@ public:
     {
         if (posicaoDaProximaVaga > 0)
         {
-            this->posicaoDaProximaVaga--;
-            this->fila[this->posicaoDaProximaVaga] = 0;
+            posicaoDaProximaVaga--;
+            fila[posicaoDaProximaVaga] = 0;
             return "Pessoa removida com sucesso!\n\n";
         }
 
@@ -48,25 +48,25 @@ private:
     {
         if (posicaoDaProximaVaga >= capacidade - 1)
         {
-            this->aumentarCapacidade();
+            aumentarCapacidade();
         }
     }
 
     void aumentarCapacidade()
     {
-        this->capacidade += 5;
-        this->fila = (int *)realloc(fila, sizeof(int) * capacidade);
-        this->zerarMemoriaRealocada();
+        capacidade += 5;
+        fila = (int *)realloc(fila, sizeof(int) * capacidade);
+        zerarMemoriaRealocada();
     }
 
     void zerarMemoriaRealocada()
     {
-        int indexPrimeiraPosicaoParteRealocada = this->posicaoDaProximaVaga;
-        int NovaCapacidade = this->capacidade;
+        int indexPrimeiraPosicaoParteRealocada = posicaoDaProximaVaga;
+        int NovaCapacidade = capacidade;
 
         for (int i = indexPrimeiraPosicaoParteRealocada; i < NovaCapacidade; i++)
         {
-            this->fila[i] = 0;
+            fila[i] = 0;
         }
     }
 
@@ -76,7 +76,7 @@ private:
 
         for (int i = 0; i < capacidade; i++)
         {
-            textoCriado += to_string(i + 1) + " - " + verificarVagoOuOcupado(this->fila[i]) + "\n";
+            textoCriado += to_string(i + 1) + " - " + verificarVagoOuOcupado(fila[i]) + "\n";
         }
 
         return textoCriado;

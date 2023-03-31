@@ -25,7 +25,7 @@ public:
             break;
 
         case 1:
-            this->adicionarPessoa();
+            adicionarPessoa();
             return estadoDoSistema;
             break;
 
@@ -35,7 +35,7 @@ public:
             break;
 
         case 3:
-            cout << this->retornarFila() << "\n";
+            cout << retornarFila() << "\n";
             return estadoDoSistema;
             break;
 
@@ -47,8 +47,6 @@ public:
     }
 
 private:
-    
-
     void adicionarPessoa()
     {
         currentFila->adicionarPessoa();
@@ -56,7 +54,7 @@ private:
 
     void removerPessoa()
     {
-       cout << currentFila->removerPessoa();
+        cout << currentFila->removerPessoa();
     }
 
     string retornarFila()
