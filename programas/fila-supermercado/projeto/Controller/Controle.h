@@ -56,7 +56,7 @@ private:
 
     void removerPessoa()
     {
-        currentFila->removerPessoa();
+       cout << currentFila->removerPessoa();
     }
 
     string retornarFila()

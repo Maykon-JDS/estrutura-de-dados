@@ -42,7 +42,6 @@ private:
         cout << "\nNúmero da Opção: ";
         cin >> this->opcao;
         system("cls");
-
     }
 
     int controlarOpcoes(int opcao){
