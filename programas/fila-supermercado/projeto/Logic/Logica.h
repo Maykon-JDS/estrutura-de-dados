@@ -18,16 +18,6 @@ public:
         this->fila = (int *)calloc(EspacoDaFila, sizeof(int));
     }
 
-    string retornarFila()
-    {
-        string filaResultado = "";
-        for (int i = 0; i < capacidade; i++)
-        {
-            filaResultado += to_string(i + 1) + " - " + verificarVagoOuOcupado(this->fila[i]) + "\n";
-        }
-        return filaResultado;
-    }
-
     void adicionarPessoa()
     {
         verificarFilaCheia();
@@ -35,18 +25,22 @@ public:
         posicaoDaProximaVaga++;
     }
 
+    string retornarFila()
+    {
+        string textoCriado = criarTextoRetornarFila();
+        return textoCriado;
+    }
+
     string removerPessoa()
     {
-        if (posicaoDaProximaVaga == 0)
-        {
-            return "Fila já está vazia!\n\n";
-        }
-        else
+        if (posicaoDaProximaVaga > 0)
         {
             this->posicaoDaProximaVaga--;
             this->fila[this->posicaoDaProximaVaga] = 0;
             return "Pessoa removida com sucesso!\n\n";
         }
+
+        return "Fila já está vazia!\n\n";
     }
 
 private:
@@ -56,20 +50,6 @@ private:
         {
             this->aumentarCapacidade();
         }
-    }
-
-    string verificarVagoOuOcupado(int lugar)
-    {
-        if (lugar == 0)
-        {
-            return "Vago";
-        }
-        else if (lugar == 1)
-        {
-            return "Ocupado";
-        }
-
-        return "Indefinido";
     }
 
     void aumentarCapacidade()
@@ -88,5 +68,27 @@ private:
         {
             this->fila[i] = 0;
         }
+    }
+
+    string criarTextoRetornarFila()
+    {
+        string textoCriado = "";
+
+        for (int i = 0; i < capacidade; i++)
+        {
+            textoCriado += to_string(i + 1) + " - " + verificarVagoOuOcupado(this->fila[i]) + "\n";
+        }
+
+        return textoCriado;
+    }
+
+    string verificarVagoOuOcupado(int lugar)
+    {
+        if (lugar == 0)
+        {
+            return "Vago";
+        }
+
+        return "Ocupado";
     }
 };
