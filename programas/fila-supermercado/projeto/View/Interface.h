@@ -12,7 +12,6 @@ public:
     void rodarPrograma()
     {
 
-
         criarFila();
 
         system("cls");

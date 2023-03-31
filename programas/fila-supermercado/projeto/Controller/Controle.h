@@ -30,6 +30,7 @@ public:
             break;
 
         case 2:
+            removerPessoa();
             return estadoDoSistema;
             break;
 
