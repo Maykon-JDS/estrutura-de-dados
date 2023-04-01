@@ -1,25 +1,3 @@
-/*
-
-cadastrar 5 produtos
-
-cada produto possui: 
-	Código do Produto; ok
-	Preço; ok 
-	Quantidade Estocada; ok 
-
-	Tipo de estrutura: 
-		Lista simplismente encadeada e não ordenada;
-
-	Receber do usuario taxa de desconto;
-
-	Aplicar a taxa digitada ao preço de todos os produtos cadastrados
-
-	Mostrar um relatorio com o código e o novo preço;
-
-	Mostrar ao final a quantidade de produtos com quantidade estocada superior a 500;
-		
-*/
-
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
