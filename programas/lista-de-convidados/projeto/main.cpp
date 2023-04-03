@@ -1,43 +1,15 @@
 #include <iostream>
-#include <vector>
+#include "Controller/controle.h"
 
 using namespace std;
 
 int main()
 {
+    Controle * controle = new Controle();
+    vector<string> registro;
 
-    int linhas;
-    vector<int> qtdCol;
-    vector<vector<int>> array;
-
-    cout << "Quantida de linhas: ";
-    cin >> linhas;
-
-    array.resize(linhas);
-
-    cout << "\nEscreva a quantidade de colunas de cada linha: ";
-    for (int i = 0; i < linhas; i++)
-    {
-        int col;
-        cout << "\nLinha" << i << ": ";
-        cin >> col;
-        qtdCol.push_back(col);
-        array[i].resize(qtdCol[i]);
-    }
-
-    for (int i = 0; i < linhas; i++)
-    {
-        for (int j = 0; j < qtdCol[i]; j++)
-        {
-        cout << array[i][j] << " ";
-        }
-
-        cout << "\n";
-
-        
-    }
-    
-
+    registro.push_back("Maykon");
+    registro.push_back("Tudo Bem");
 
     system("PAUSE >nul");
     return 0;
