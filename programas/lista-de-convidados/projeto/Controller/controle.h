@@ -6,7 +6,11 @@ private:
     Logica * logica = new Logica();
 
 public:
-    void adicionarPessoaNaLista(vector<string> registro){
-        logica->adicionarPessoaNaLista(registro);
+    void addPersonToList(vector<string> registro){
+        logica->addPersonToList(registro);
+    }
+
+    void getListOfPeople(){
+        logica->getListOfPeople();
     }
 };

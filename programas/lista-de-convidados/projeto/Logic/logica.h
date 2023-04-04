@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -7,30 +8,32 @@ class Logica
 {
 
 private:
-    int numeroDeConvidados = 0;
-    vector<vector<string>> listaDeConvidados;
-    vector<int> qtdDeColaboracao;
+    int numberOfGuests = 0;
+    vector<vector<string>> guestList;
 
 public:
-    void adicionarPessoaNaLista(vector<string> registro)
+    void addPersonToGuestList(vector<string> registro)
     {
-        int tamanhoInicial = 1;
-        numeroDeConvidados++;
-        qtdDeColaboracao.push_back(registro.size());
-        listaDeConvidados.resize(numeroDeConvidados);
+        int initialSize = 1;
+        numberOfGuests++;
+        guestList.resize(numberOfGuests);
 
         for (int i = 0; i < registro.size(); i++)
         {
-            listaDeConvidados[numeroDeConvidados - 1].push_back(registro[i]);
+            guestList[numberOfGuests - 1].push_back(registro[i]);
         }
     }
 
-    void mostrarLista(){
-        for(int i = 0; i < numeroDeConvidados; i++){
-            for(int j = 0; j < listaDeConvidados[i].size(); j++){
-                cout << listaDeConvidados[i][j];
+    vector<vector<string>> getGuestList(){
+        
+
+        for(int i = 0; i < numberOfGuests; i++){
+            for(int j = 0; j < guestList[i].size(); j++){
+                cout << guestList[i][j] << " ";
             }
             cout << "\n";
         }
+
+        return guestList;
     }
 };
