@@ -8,7 +8,7 @@ private:
     Controller * controller = new Controller();
 
 public:
-    void rodarPrograma()
+    void runSystem()
     {
         system("cls");
 
