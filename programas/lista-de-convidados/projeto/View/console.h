@@ -12,7 +12,7 @@ public:
     {
         system("cls");
 
-        while (isActiveSystem != 0)
+        while (isActiveSystem != 0 && isActiveSystem == 1)
         {
             showOptions();
             chooseOptions();
@@ -41,9 +41,11 @@ private:
     
     void chooseOptions()
     {
+        
         cout << "\nNúmero da Opção: ";
         cin >> option;
-        system("cls");
+        cin.ignore(numeric_limits<streamsize>::max()    , '\n');
+        // system("cls");
     }
 
     void programExit(){
