@@ -3,6 +3,7 @@
 class Controller
 {
 
+
 private:
     Logica *logica = new Logica();
     vector<string> guestRegistration;
@@ -34,7 +35,7 @@ public:
             break;
 
         case 3:
-            // cout << getGuestList() << "\n";
+            cout << getGuestList();
             return estadoDoSistema;
             break;
 
@@ -49,11 +50,29 @@ private:
     void addPersonToGuestList(vector<string> registro)
     {
         logica->addPersonToGuestList(registro);
+        guestRegistration.clear();
     }
 
-    vector<vector<string>> getGuestList()
+    string getGuestList()
     {
-        return logica->getGuestList();
+        vector<vector<string>> list = logica->getGuestList();
+        string responseList = "";
+
+        for(int i = 0; i < list.size(); i++){
+            responseList += list[i][0];
+            for(int j = 1; j < list[i].size(); j++){
+                responseList += " | " + list[i][j];
+                
+            }
+            responseList += "\n\n";
+        }
+
+        // cout << list[0][0] << "\n";
+        // cout << list[1][0] << "\n";
+
+        return responseList;
+
+
     }
 
     void registerGuest()
@@ -116,12 +135,14 @@ private:
             cin >> response;
             cin.ignore(1, '\n');
             *i += 1;
+            LoopState = response;
             return LoopState;
         }
         else if (response == 0)
         {
             cout << "\nTotal de itens adicionados: " << i;
-            return LoopState = 0;
+            LoopState = 0;
+            return LoopState;
         }
         else
         {
@@ -132,6 +153,7 @@ private:
             cout << "\nNúmero da Opção: ";
             cin >> response;
             cin.ignore(1, '\n');
+            return LoopState;
         }
     }
 };

@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <locale>
+
 
 using namespace std;
 
@@ -14,7 +16,6 @@ private:
 public:
     void addPersonToGuestList(vector<string> registro)
     {
-        int initialSize = 1;
         numberOfGuests++;
         guestList.resize(numberOfGuests);
 
@@ -25,15 +26,6 @@ public:
     }
 
     vector<vector<string>> getGuestList(){
-        
-
-        for(int i = 0; i < numberOfGuests; i++){
-            for(int j = 0; j < guestList[i].size(); j++){
-                cout << guestList[i][j] << " ";
-            }
-            cout << "\n";
-        }
-
         return guestList;
     }
 };

@@ -10,6 +10,8 @@ private:
 public:
     void runSystem()
     {
+        setlocale(LC_ALL, "portuguese");
+
         system("cls");
 
         while (isActiveSystem != 0 && isActiveSystem == 1)
@@ -45,7 +47,7 @@ private:
         cout << "\nNúmero da Opção: ";
         cin >> option;
         cin.ignore(1, '\n');
-        // system("cls");
+        system("cls");
     }
 
     void programExit(){
