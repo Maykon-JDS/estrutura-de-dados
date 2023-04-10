@@ -44,7 +44,7 @@ private:
         
         cout << "\nNúmero da Opção: ";
         cin >> option;
-        cin.ignore(numeric_limits<streamsize>::max()    , '\n');
+        cin.ignore(1, '\n');
         // system("cls");
     }
 
