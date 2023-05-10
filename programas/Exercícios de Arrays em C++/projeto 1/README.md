@@ -1,0 +1,1 @@
+01. Escreva um programa que vai receber e armazenar 10 números em um array. Em seguida, você deve criar duas funções que vão achar o maior e o menor valor desse array.
