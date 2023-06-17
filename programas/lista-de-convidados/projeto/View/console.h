@@ -33,7 +33,7 @@ private:
     string getOptions()
     {
         string opcoes = 
-        "Escolha uma Opção:\n\n"
+        "Escolha uma Opcao:\n\n"
         "0 - Sair\n"
         "1 - Adicionar Convidado\n"
         "2 - Retirar Convidado\n"
@@ -44,7 +44,7 @@ private:
     void chooseOptions()
     {
         
-        cout << "\nNúmero da Opção: ";
+        cout << "\nNumero da Opcao: ";
         cin >> option;
         cin.ignore(1, '\n');
         system("cls");

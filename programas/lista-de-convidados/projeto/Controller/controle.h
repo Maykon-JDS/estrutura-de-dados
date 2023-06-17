@@ -40,7 +40,7 @@ public:
             break;
 
         default:
-            cout << "Escolha uma opção válida!\n\n";
+            cout << "Escolha uma opcao valida!\n\n";
             return estadoDoSistema;
             break;
         }
@@ -67,11 +67,7 @@ private:
             responseList += "\n\n";
         }
 
-        // cout << list[0][0] << "\n";
-        // cout << list[1][0] << "\n";
-
         return responseList;
-
 
     }
 
@@ -99,8 +95,8 @@ private:
     int willCollaborate()
     {
         cout << "\nVai colaborar trazendo algo?";
-        cout << "\n1 - Sim\n0 - Não\n";
-        cout << "\nNúmero da Opção: ";
+        cout << "\n1 - Sim\n0 - Nao\n";
+        cout << "\nNumero da Opcao: ";
 
         int response;
         cin >> response;
@@ -125,13 +121,13 @@ private:
         if (response == 1)
         {
             string item;
-            cout << *i << "º Item: ";
+            cout << *i << " - Item: ";
             getline(cin, item);
             guestRegistration.push_back(item);
 
             cout << "\nDeseja adicionar mais itens?";
-            cout << "\n1 - Sim\n0 - Não\n";
-            cout << "\nNúmero da Opção: ";
+            cout << "\n1 - Sim\n0 - Nao\n";
+            cout << "\nNumero da Opcao: ";
             cin >> response;
             cin.ignore(1, '\n');
             *i += 1;
@@ -149,8 +145,8 @@ private:
             cout << "\nDigite um valor valido!\n";
 
             cout << "\nDeseja adicionar mais itens?";
-            cout << "\n1 - Sim\n0 - Não\n";
-            cout << "\nNúmero da Opção: ";
+            cout << "\n1 - Sim\n0 - Nao\n";
+            cout << "\nNumero da Opcao: ";
             cin >> response;
             cin.ignore(1, '\n');
             return LoopState;

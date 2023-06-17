@@ -11,5 +11,6 @@ int main()
     console->runSystem();
 
     system("PAUSE >nul");
+    
     return 0;
 }
