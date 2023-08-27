@@ -22,28 +22,33 @@ typedef struct knot
 } Car; 
 
 
-void pushFirst(Car **inicio); 
+void pushFirst(Car **first, Car ** last);
 
-// TODO: Criar a função para adicionar no final da lista
-// TODO: Criar a função para adicionar no meio da lista
+void pushLast(Car **first, Car ** last); 
 
-// TODO: Criar a função para remover do inicio da lista
-// TODO: Criar a função para remover do final da lista
-// TODO: Criar a função para remover do meio da lista
+// TODO: Criar a fun��o para adicionar no final da lista
+// TODO: Criar a fun��o para adicionar no meio da lista
+
+// TODO: Criar a fun��o para remover do inicio da lista
+// TODO: Criar a fun��o para remover do final da lista
+// TODO: Criar a fun��o para remover do meio da lista
 
 Car setCar(); 
 
 void showCarList(Car ** lista);
 
-void showLoopedOptionsPanel(Car ** first);
+void showLoopedOptionsPanel(Car ** first, Car ** last);
 
-int setOption(Car ** first);
+int setOption(Car ** first, Car ** last);
 
 int main()
 {
+    
     Car *first = NULL;
+    Car *last = NULL;
 
-    showLoopedOptionsPanel(&first);
+    showLoopedOptionsPanel(&first, &last);
+
 }
 
 Car setCar()
@@ -51,14 +56,44 @@ Car setCar()
     int price;
     Car novo_no;
 
-    printf("Digite o price do no\n");
+    printf("Digite o preco do carro:\n");
     scanf("%d", &price);
 
     novo_no.price = price;
     return novo_no;
 }
 
-void pushFirst(Car **first) 
+void pushFirst(Car **first, Car ** last)  // Continuar
+{
+    const int KNOT_SIZE  = sizeof(Car);
+    Car *newCar = (Car *)calloc(1, KNOT_SIZE);
+
+    printf("\nEndereco do novo no: %p\n", newCar);
+
+    *newCar = setCar();
+
+    if(**first == NULL && **last == NULL)
+    {
+        newCar->previous = NULL;
+        newCar->next = NULL;
+
+        *first = newCar
+        *last = newCar
+    }
+    else
+    {
+        
+        newCar->previous = NULL;
+        newCar->next = *first
+
+        *first->previous = newCar;
+
+    }
+
+    *first = newCar;
+}
+
+void pushLast(Car **first, Car ** last)  // Continuar
 {
     const int KNOT_SIZE  = sizeof(Car);
     Car *newCar = (Car *)calloc(1, KNOT_SIZE);
@@ -81,17 +116,17 @@ void showCarList(Car ** first)
     }
 }
 
-void showLoopedOptionsPanel(Car ** first)
+void showLoopedOptionsPanel(Car ** first, Car ** last)
 {
     int loop;
 
     do {
-        loop = setOption(first);
+        loop = setOption(first, last);
     }
     while (loop == 0);
 }
 
-int setOption(Car ** first)
+int setOption(Car ** first, Car ** last)
 {
     int option;
     
@@ -100,22 +135,27 @@ int setOption(Car ** first)
 
     printf("Escolha o numero da opcao:\n");
     printf("1 - Adicionar ao inicio da lista\n");
-    printf("2 - Mostrar lista\n");
-    printf("3 - Sair\n");
+    printf("2 - Adicionar ao inicio da lista\n");
+    printf("3 - Mostrar lista\n");
+    printf("4 - Sair\n");
     
     scanf("%d", &option);
 
     switch (option)
     {
     case 1:
-            pushFirst(first);
+            pushFirst(first, last);
             return LOOP_ON;
         break;
     case 2:
-            showCarList(first);
+            pushLast(first, last);
             return LOOP_ON;
         break;
     case 3:
+            showCarList(first);
+            return LOOP_ON;
+        break;
+    case 4:
             printf("Saindo...");
             return LOOP_OFF;
         break;
