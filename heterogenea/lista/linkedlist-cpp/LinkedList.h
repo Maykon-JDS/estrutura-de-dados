@@ -60,6 +60,31 @@ public:
         return this->head;
     }
 
+    Node *back()
+    {
+        auto el = this->head;
+
+        while (el->node != NULL)
+        {
+            el = el->node;
+        }
+
+        return el;
+    }
+
+    /**
+     * Adds a new element at the beginning of the LinkedList.
+     * @param value int
+     * */
+    void push_front(int value){
+
+        Node * node = new Node();
+        node->value = value;
+
+        node->node = this->head;
+        this->head = node;
+    }
+
     /**
      * Adds a new element at the end of the LinkedList, after its current last element.
      * @param value int
