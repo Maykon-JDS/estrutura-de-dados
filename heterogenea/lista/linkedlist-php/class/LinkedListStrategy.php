@@ -2,20 +2,45 @@
 
 namespace Lista\class;
 
-abstract class LinkedList{
+use Lista\class\Node;
 
-    abstract public function add();
+abstract class LinkedListStrategy{
 
-    abstract public function pop();
+    protected Node|null $head;
 
-    abstract public function get();
+    protected Node|null $tail;
 
-    abstract public function contains();
+    public function __construct()
+    {
 
-    abstract public function size();
+        $this->head = null;
+        
+        $this->tail = null;
+        
+    }
 
-    abstract public function iterate();
+    abstract public function addHead(mixed $value) : void;
+
+    abstract public function addTail(mixed $value) : void;
     
+    abstract public function addIndex(int $index, mixed $value) : void;
+
+    abstract public function popHead() : void;
+
+    abstract public function popTail() : void;
+
+    abstract public function popIndex(int $index) : void;
+
+    abstract public function getIndex(int $index) : Node|null;
+
+    abstract public function getHead() : Node|null;
+
+    abstract public function getTail() : Node|null;
+
+    abstract public function contains() : bool;
+
+    abstract public function size() : int;
+
 }
 
 
