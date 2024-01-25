@@ -19,19 +19,6 @@ class StandartLinkedListStrategyTest extends TestCase {
     
     }
 
-    public function testGetHeadNode() : void
-    {
-
-        $linkedlist = new StandartLinkedListStrategy();
-
-        $linkedlist->addHead(10);
-
-        $node = new Node(10);
-    
-        $this->assertEquals($node,$linkedlist->getHead());
-
-    }
-
     public function testAddHeadNodeInt() : void
     {
 
@@ -288,6 +275,81 @@ class StandartLinkedListStrategyTest extends TestCase {
     
         $this->assertEquals($node1, $linkedlist->getIndex(2));
     
+    }
+
+    public function testGetIndexNotFound() : void
+    {
+    
+        $linkedlist = new StandartLinkedListStrategy();
+
+        $linkedlist->addHead(10);
+        
+        $linkedlist->addHead(20);
+
+        $linkedlist->addHead("Teste");
+        
+        $linkedlist->addHead(3.5);
+        
+        $linkedlist->addHead(98);
+    
+        $this->assertNull($linkedlist->getIndex(5));
+    
+    }
+
+    public function testPopHeadNull() : void
+    {
+
+        $linkedlist = new StandartLinkedListStrategy();
+
+        $linkedlist->popHead();
+
+        $this->assertNull($linkedlist->getHead());
+
+    }
+
+    public function testPopHeadOneNode() : void
+    {
+
+        $linkedlist = new StandartLinkedListStrategy();
+
+        $linkedlist->addHead(10);
+
+        $linkedlist->popHead();
+
+        $this->assertNull($linkedlist->getHead());
+
+    }
+
+    public function testPopHeadThreeNodes() : void
+    {
+
+        $linkedlist = new StandartLinkedListStrategy();
+
+        $linkedlist->addHead(90.45);
+
+        $linkedlist->addHead("Teste");
+
+        $linkedlist->addHead(10);
+
+        $linkedlist->popHead();
+
+        $node2 = new Node(90.45);
+
+        $node1 = new Node("Teste", $node2);
+
+        $this->assertEquals($node1, $linkedlist->getHead());
+
+    }
+    
+    public function testPopTailNull() : void
+    {
+
+        $linkedlist = new StandartLinkedListStrategy();
+
+        $linkedlist->popTail();
+
+        $this->assertNull($linkedlist->getTail());
+
     }
 
 }

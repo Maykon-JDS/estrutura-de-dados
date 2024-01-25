@@ -49,7 +49,12 @@ class StandartLinkedListStrategy extends LinkedListStrategy{
     public function popHead() : void
     {
 
+        if($this->head <> Null)
+        {
 
+            $this->head = $this->head->getNext();
+
+        }
 
     }
 
