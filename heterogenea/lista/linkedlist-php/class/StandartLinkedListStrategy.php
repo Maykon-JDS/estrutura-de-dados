@@ -61,12 +61,47 @@ class StandartLinkedListStrategy extends LinkedListStrategy{
     public function popTail() : void
     {
 
+        $nodeSearch = $this->head;
 
+        if($nodeSearch <> Null && $nodeSearch->getNext() <> Null){
+
+            while($nodeSearch->getNext()->getNext() <> Null){
+
+                $nodeSearch = $nodeSearch->getNext();
+
+            }
+
+            $nodeSearch->setNext(Null);
+        
+            $this->tail = $nodeSearch;
+
+        }
+        else{
+
+            $this->head = Null;
+            
+            $this->tail = Null;
+
+        }
 
     }
 
     public function popIndex(int $index) : void
     {
+
+        $nodeSearch = $this->head;
+
+        for ($i=0; $i <= $index; $i++) { 
+            
+            if(empty($nodeSearch)){
+
+            }else{
+
+                break;
+
+            }
+
+        }
 
 
 
@@ -85,8 +120,7 @@ class StandartLinkedListStrategy extends LinkedListStrategy{
         }
         else{
 
-        $this->tail = $node;
-
+            $this->tail = $node;
 
         }
 
@@ -130,7 +164,7 @@ class StandartLinkedListStrategy extends LinkedListStrategy{
 
     }
 
-    public function contains() : bool
+    public function contains() : bool 
     {
 
         

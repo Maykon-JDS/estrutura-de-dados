@@ -352,6 +352,80 @@ class StandartLinkedListStrategyTest extends TestCase {
 
     }
 
+    public function testPopTailOne() : void
+    {
+
+        $linkedlist = new StandartLinkedListStrategy();
+
+        $linkedlist->addHead(90.45);
+
+        $linkedlist->popTail();
+
+        $this->assertNull($linkedlist->getHead());
+
+        $this->assertNull($linkedlist->getTail());
+
+    }
+
+    public function testPopTailThreeNodes() : void
+    {
+
+        $linkedlist = new StandartLinkedListStrategy();
+
+        $linkedlist->addHead(90.45);
+
+        $linkedlist->addHead("Teste");
+
+        $linkedlist->addHead(10);
+
+        $linkedlist->popTail();
+
+        $node1 = new Node("Teste", Null);
+
+        $node2 = new Node(10, $node1);
+
+        $this->assertEquals($node1, $linkedlist->getTail());
+
+        $this->assertEquals($node2, $linkedlist->getHead());
+
+    }
+
+    public function testPopIndexNull() : void
+    {
+
+        $linkedlist = new StandartLinkedListStrategy();
+
+        $linkedlist->popIndex(1);
+
+        $this->assertNull($linkedlist->getHead());
+
+    }
+
+    public function testPopIndexOne() : void
+    {
+
+        $linkedlist = new StandartLinkedListStrategy();
+
+        $linkedlist->addHead(90.45);
+
+        $linkedlist->addHead("Teste");
+
+        $linkedlist->addHead(10);
+
+        $linkedlist->popIndex(1);
+
+        $node1 = new Node(90.45, Null);
+
+        $node2 = new Node(10, $node1);
+
+        $this->assertEquals($node2, $linkedlist->getHead());
+
+        $this->assertEquals($node1, $linkedlist->getHead()->getNext());
+
+    }
+
+
+
 }
 
 
