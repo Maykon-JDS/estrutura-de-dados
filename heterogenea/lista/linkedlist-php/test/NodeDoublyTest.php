@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 
@@ -6,6 +6,13 @@ use Lista\class\NodeDoubly;
 
 use PHPUnit\Framework\TestCase;
 
+use PHPUnit\Framework\Attributes\TestDox;
+
+use PHPUnit\Framework\Attributes\CoversClass;
+
+
+#[CoversClass(NodeDoubly::class)]
+#[TestDox("NodeDoubly")]
 class NodeDoublyTest extends TestCase {
 
     public function testGetPrevNull() : void

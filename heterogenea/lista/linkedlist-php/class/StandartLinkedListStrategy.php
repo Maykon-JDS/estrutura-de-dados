@@ -1,23 +1,23 @@
-<?php 
+<?php
 
 namespace Lista\class;
 
 use Lista\class\LinkedListStrategy;
 
 class StandartLinkedListStrategy extends LinkedListStrategy{
-     
+
     public function getHead() : Node|null
     {
 
         return $this->head;
-    
+
     }
 
     public function getTail() : Node|null
     {
 
         return $this->tail;
-    
+
     }
 
     public function getIndex(int $index) : Node|null
@@ -25,7 +25,7 @@ class StandartLinkedListStrategy extends LinkedListStrategy{
 
         $nodeSearch = $this->head;
 
-        for ($i=0; $i <= $index; $i++) { 
+        for ($i=0; $i <= $index; $i++) {
 
             if($nodeSearch == Null){
 
@@ -43,7 +43,7 @@ class StandartLinkedListStrategy extends LinkedListStrategy{
         }
 
         return $nodeSearch;
-    
+
     }
 
     public function popHead() : void
@@ -72,37 +72,42 @@ class StandartLinkedListStrategy extends LinkedListStrategy{
             }
 
             $nodeSearch->setNext(Null);
-        
+
             $this->tail = $nodeSearch;
 
         }
         else{
 
             $this->head = Null;
-            
+
             $this->tail = Null;
 
         }
 
     }
 
-    public function popIndex(int $index) : void
+    public function popIndex(int $index) : Node|null
     {
 
-        $nodeSearch = $this->head;
+        if(!$this->head <> null){
 
-        for ($i=0; $i <= $index; $i++) { 
-            
-            if(empty($nodeSearch)){
-
-            }else{
-
-                break;
-
-            }
+            return Null;
 
         }
 
+        $nodeSearch = $this->head;
+
+        for ($i=0; $i <= $index; $i++) {
+
+            if(!empty($nodeSearch)){
+
+                return Null;
+
+            }
+
+            $nodeSearch = $nodeSearch->getNext();
+
+        }
 
 
     }
@@ -136,12 +141,12 @@ class StandartLinkedListStrategy extends LinkedListStrategy{
         if(!empty($this->head)){
 
             $nodeSearch = $this->head;
-        
+
             while($nodeSearch->getNext() <> Null)
             {
-    
+
                 $nodeSearch = $nodeSearch->getNext();
-    
+
             }
 
             $nodeSearch->setNext($node);
@@ -160,14 +165,14 @@ class StandartLinkedListStrategy extends LinkedListStrategy{
     public function addIndex(int $index, mixed $value) : void
     {
 
-        
+
 
     }
 
-    public function contains() : bool 
+    public function contains() : bool
     {
 
-        
+
 
     }
 
@@ -175,7 +180,7 @@ class StandartLinkedListStrategy extends LinkedListStrategy{
     {
 
         $node = $this->head;
-        
+
         $size = 0;
 
         while($node <> Null)
@@ -188,7 +193,7 @@ class StandartLinkedListStrategy extends LinkedListStrategy{
         }
 
         return $size;
-        
+
     }
 
 }

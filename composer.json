@@ -14,5 +14,8 @@
             "name": "maykon-jds",
             "email": "maykondias2001@gmail.com"
         }
-    ]
+    ],
+    "scripts": {
+        "test": "php vendor/bin/phpunit"
+    }
 }
